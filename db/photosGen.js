@@ -22,7 +22,6 @@ function generateData(file, counter) {
   return data;
 }
 
-
 for (let i = 0; i < 100; i++) {
   generateData(filename, count);
   count++;
