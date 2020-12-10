@@ -30,7 +30,7 @@ function getReviews(productId, callback) {
   });
 }
 
-function addReviews(params, callback) {
+function addReview(params, callback) {
   pool.query('INSERT INTO reviews (rating, recommend, response, body, date, reviewer_name, helpfulness, reported, product_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', params, (err, result) => {
     if (err) {
       callback(err, null);
@@ -82,7 +82,7 @@ function getMetadata(productId, callback) {
 
 module.exports = {
   getReviews,
-  addReviews,
+  addReview,
   markAsHelpful,
   reportReview,
   getCharacteristics,

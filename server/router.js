@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getReviews, addReviews, markAsHelpful, reportReview,
+  getReviews, addReview, markAsHelpful, reportReview,
   getCharacteristics, getMetadata } = require('../db/queries.js');
 
 // @route GET
@@ -53,7 +53,7 @@ router.get('/:product_id/meta', (req, res) => {
             ratings,
             recommended,
             characteristics: chars
-          }
+          };
           res.status(200).json( finalResults );
         }
       });
@@ -64,7 +64,17 @@ router.get('/:product_id/meta', (req, res) => {
 // @route POST
 // @desc  Add a new Review by Product Id
 router.post('/:product_id', (req, res) => {
-  res.status(200).json({ msg: 'your mom' });
+  const productId = req.params.product_id;
+  const { rating, recommend, response, body, date, reviewer_name, helpfulness, reported } = req.body;
+  // rating, recommend, response, body, date, reviewer_name, helpfulness, reported, product_id
+  const params = [ rating, recommend, response, body, date, reviewer_name, helpfulness, reported, productId ];
+  addReview(params, (err, result) => {
+    if (err) {
+      res.status(500).json({ msg: error });
+    } else {
+      res.status(201).json({ result });
+    }
+  });
 });
 
 // @route PUT
