@@ -3,7 +3,7 @@ const objToCSV = require('objects-to-csv');
 
 function createFakeReview() {
   return {
-    rating: faker.random.number(),
+    rating: Math.floor(Math.random() * 10) + 1,
     recommend: faker.random.boolean(),
     response: faker.random.word(),
     body: faker.random.words(),
