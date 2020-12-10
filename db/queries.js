@@ -41,7 +41,7 @@ function addReview(params, callback) {
 }
 
 function markAsHelpful(reviewId, callback) {
-  pool.query('UPDATE reviews SET helpfullness = helpfulness + 1 WHERE review_id = $1', [reviewId], (err, result) => {
+  pool.query('UPDATE reviews SET helpfulness = helpfulness + 1 WHERE review_id = $1', [reviewId], (err, result) => {
     if (err) {
       callback(err, null);
     } else {
@@ -51,7 +51,7 @@ function markAsHelpful(reviewId, callback) {
 }
 
 function reportReview(reviewId, callback) {
-  pool.query('UPDATE reviews SET reported = 1 WHERE review_id = $1', [reviewId], (err, result) => {
+  pool.query('UPDATE reviews SET reported = TRUE WHERE review_id = $1', [reviewId], (err, result) => {
     if (err) {
       callback(err, null);
     } else {

@@ -80,13 +80,27 @@ router.post('/:product_id', (req, res) => {
 // @route PUT
 // @desc  Update existing review as helpful
 router.put('/helpful/:review_id', (req, res) => {
-  res.status(200).json({ msg: 'your mom' });
+  markAsHelpful(req.params.review_id, (err, result) => {
+    if (err) {
+      res.status(500).json({ msg: err });
+    } else {
+      res.sendStatus(204);
+    }
+  });
+
+  // res.status(200).json({ msg: 'your mom' });
 });
 
 // @route PUT
 // @desc  Update existing review as reported
 router.put('/report/:review_id', (req, res) => {
-  res.status(200).json({ msg: 'your mom' });
+  reportReview(req.params.review_id, (err, result) => {
+    if (err) {
+      res.status(500).json({ msg: err });
+    } else {
+      res.sendStatus(204);
+    }
+  });
 });
 
 module.exports = router;
