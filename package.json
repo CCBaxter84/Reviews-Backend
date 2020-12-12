@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "server": "nodemon server",
-    "seedChar": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/characteristics.sql"
+    "seed:char": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/characteristics.sql",
+    "seed:reviews": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/partitioned-reviews.sql"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "k6": "0.0.0",
+    "newrelic": "^7.0.2",
     "objects-to-csv": "^1.3.6",
     "pg": "^8.5.1"
   },
