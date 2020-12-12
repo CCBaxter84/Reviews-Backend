@@ -5,20 +5,10 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'myDatabase',
+  max: 100,
   password: process.env.PASSWORD,
   port: 5432
 });
-/*
-const client = new Client({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'myDatabase',
-  password: process.env.PASSWORD,
-  post: 3211
-});
-
-client.connect(() => console.log('Posgres DB connected...'));
-*/
 
 function getReviews(productId, callback) {
   pool.query('SELECT * FROM reviews WHERE product_id = $1 AND reported IS NULL', [productId], (err, results) => {

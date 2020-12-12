@@ -70,7 +70,7 @@ router.post('/:product_id', (req, res) => {
   const params = [ rating, recommend, response, body, date, reviewer_name, helpfulness, reported, productId ];
   addReview(params, (err, result) => {
     if (err) {
-      res.status(500).json({ msg: error });
+      res.status(500).json({ msg: err });
     } else {
       res.status(201).json({ result });
     }
