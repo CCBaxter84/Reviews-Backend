@@ -7,6 +7,7 @@ CREATE TABLE if not exists reviews (
   date TIMESTAMPTZ,
   reviewer_name VARCHAR(255),
   helpfulness INTEGER,
+  photos text[],
   reported BOOLEAN,
   product_id INTEGER
 );

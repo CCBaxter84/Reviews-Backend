@@ -11,7 +11,7 @@ const pool = new Pool({
 });
 
 function getReviews(productId, callback) {
-  pool.query('SELECT * FROM partreviews WHERE product_id = $1 AND reported IS NULL', [productId], (err, results) => {
+  pool.query('SELECT * FROM reviewsphotos WHERE product_id = $1 AND reported IS NULL', [productId], (err, results) => {
     if (err) {
       callback(err, null);
     } else {
@@ -27,11 +27,11 @@ function getPhotos(reviewId, callback) {
     } else {
       callback(null, results);
     }
-  })
+  });
 }
 
 function addReview(params, callback) {
-  pool.query('INSERT INTO partreviews (rating, recommend, response, body, date, reviewer_name, helpfulness, reported, product_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', params, (err, result) => {
+  pool.query('INSERT INTO reviewsphotos (rating, recommend, response, body, date, reviewer_name, helpfulness, reported, product_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', params, (err, result) => {
     if (err) {
       callback(err, null);
     } else {
@@ -41,7 +41,7 @@ function addReview(params, callback) {
 }
 
 function markAsHelpful(reviewId, callback) {
-  pool.query('UPDATE partreviews SET helpfulness = helpfulness + 1 WHERE review_id = $1', [reviewId], (err, result) => {
+  pool.query('UPDATE reviewsphotos SET helpfulness = helpfulness + 1 WHERE review_id = $1', [reviewId], (err, result) => {
     if (err) {
       callback(err, null);
     } else {
@@ -51,7 +51,7 @@ function markAsHelpful(reviewId, callback) {
 }
 
 function reportReview(reviewId, callback) {
-  pool.query('UPDATE partreviews SET reported = TRUE WHERE review_id = $1', [reviewId], (err, result) => {
+  pool.query('UPDATE reviewsphotos SET reported = TRUE WHERE review_id = $1', [reviewId], (err, result) => {
     if (err) {
       callback(err, null);
     } else {
@@ -71,7 +71,7 @@ function getCharacteristics(productId, callback) {
 }
 
 function getMetadata(productId, callback) {
-  pool.query('SELECT rating, recommend FROM partreviews WHERE product_id = $1 AND reported IS NULL', [productId], (err, results) => {
+  pool.query('SELECT rating, recommend FROM reviewsphotos WHERE product_id = $1 AND reported IS NULL', [productId], (err, results) => {
     if (err) {
       callback(err, null);
     } else {
