@@ -11,5 +11,4 @@ app.use(cors());
 
 app.use('/reviews', router);
 
-
 app.listen(PORT, () => console.log(`Server is running and listening on port ${PORT}`));
