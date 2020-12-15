@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
-  getReviews, getPhotos, addReview, markAsHelpful, reportReview,
+  getReviews, addReview, markAsHelpful, reportReview,
   getCharacteristics, getMetadata } = require('../db/queries.js');
 
 // @route GET
@@ -12,8 +12,14 @@ router.get('/:product_id/list', (req, res) => {
     if (error) {
       res.status(500).send(error);
     } else {
-      let reviews = results.rows;
-      res.status(200).json({ results: reviews });
+      const reviews = {
+        product: productId,
+        page: 1,
+        count: 5,
+        results: results.rows
+      };
+      // let reviews = results.rows;
+      res.status(200).send(reviews);
     }
   });
 });

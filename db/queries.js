@@ -72,7 +72,6 @@ function getMetadata(productId, callback) {
 
 module.exports = {
   getReviews,
-  getPhotos,
   addReview,
   markAsHelpful,
   reportReview,
