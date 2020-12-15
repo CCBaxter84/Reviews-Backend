@@ -8,7 +8,7 @@
     "start": "node server",
     "server": "nodemon server",
     "seed:char": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/characteristics.sql",
-    "seed:reviews": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/partitioned-reviews.sql",
+
     "seed:reviewsPhotos": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/reviewsPhotos.sql"
   },
   "repository": {

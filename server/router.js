@@ -18,17 +18,6 @@ router.get('/:product_id/list', (req, res) => {
   });
 });
 
-router.get('/:review_id/photo', (req, res) => {
-  const reviewId = req.params.review_id;
-  getPhotos(reviewId, (error, results) => {
-    if (error) {
-      res.status(500).send(error);
-    } else {
-      res.status(200).send(results.rows);
-    }
-  });
-});
-
 // @route GET
 // @desc  Get Product Review Metadata & Characteristics
 router.get('/:product_id/meta', (req, res) => {
