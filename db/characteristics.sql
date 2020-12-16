@@ -25,4 +25,4 @@ CREATE TABLE if not exists _9thmchars PARTITION OF partchars FOR VALUES FROM ('8
 
 CREATE TABLE if not exists _10thmchars PARTITION OF partchars FOR VALUES FROM ('9000000') TO ('11000000');
 
-\copy partchars(name, value, product_id) FROM '/Users/mywork/Documents/coding_projects/work/sdc/Reviews-Backend/db/csv/allChar.csv' WITH DELIMITER ',' CSV HEADER;
+\copy partchars(name, value, product_id) FROM '/Users/mywork/Documents/coding_projects/work/sdc/Reviews-Backend/db/characteristics.csv' WITH DELIMITER ',' CSV HEADER;

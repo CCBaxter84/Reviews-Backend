@@ -32,4 +32,4 @@ CREATE TABLE if not exists _9thmreviews PARTITION OF reviewsphotos FOR VALUES FR
 
 CREATE TABLE if not exists _10thmreviews PARTITION OF reviewsphotos FOR VALUES FROM ('9000000') TO ('11000000');
 
-\copy reviewsphotos(rating, recommend, response, body, date, reviewer_name, helpfulness, photos, reported, product_id) FROM '/Users/mywork/Documents/coding_projects/work/sdc/Reviews-Backend/db/allReviewsPhotos.csv' WITH DELIMITER ',' CSV HEADER;
+\copy reviewsphotos(rating, recommend, response, body, date, reviewer_name, helpfulness, photos, reported, product_id) FROM '/Users/mywork/Documents/coding_projects/work/sdc/Reviews-Backend/db/all.csv' WITH DELIMITER ',' CSV HEADER;
