@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "server": "nodemon server",
-    "seed:char": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/characteristics.sql",
+    "seed:char": "psql -h 3.131.51.200 -U postgres -d mydatabase -p 5432 -f db/characteristics.sql",
 
-    "seed:reviewsPhotos": "psql -U postgres -d myDatabase -h localhost -p 5432 -f db/reviewsPhotos.sql"
+    "seed:reviewsPhotos": "psql -h 3.131.51.200 -U postgres -d mydatabase -p 5432 -f db/reviewsPhotos.sql"
   },
   "repository": {
     "type": "git",
