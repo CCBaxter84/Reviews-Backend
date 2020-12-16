@@ -12,7 +12,7 @@ export let options = {
 };
 
 export default function() {
-  let res1 = http.get('http://localhost:4000/reviews/25/list');
+  let res1 = http.get('http://3.129.230.28/reviews/25/list');
   const payload = JSON.stringify({
     rating: 5,
     recommend: true,
@@ -23,9 +23,9 @@ export default function() {
     helpfulness: 4,
     reported: false
   });
-  let res2 = http.post('http://localhost:4000/reviews/25', payload);
-  let res3 = http.put('http://localhost:4000/reviews/report/25');
-  let res4 = http.put('http://localhost:4000/reviews/helpful/25');
+  let res2 = http.post('http://3.129.230.28/reviews/25', payload);
+  let res3 = http.put('http://3.129.230.28/reviews/report/25');
+  let res4 = http.put('http://3.129.230.28/reviews/helpful/25');
   myFailRate.add(res1.status !== 200);
   myFailRate.add(res2.status !== 201);
   myFailRate.add(res3.status !== 204);
