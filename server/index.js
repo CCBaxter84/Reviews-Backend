@@ -4,7 +4,7 @@ require('newrelic');
 const cors = require('cors');
 const PORT = 4000;
 const router = require('./router.js');
-const { pool } = require('../db/queries.js')
+const { pool } = require('../db/queries.js');
 
 app.use(express.json());
 app.use(cors());

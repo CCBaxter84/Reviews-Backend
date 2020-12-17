@@ -4,6 +4,7 @@ const {
   getReviews, addReview, markAsHelpful, reportReview,
   getCharacteristics, getMetadata } = require('../db/queries.js');
 
+
 // @route GET
 // @desc  Get all reviews by Product Id
 router.get('/:product_id/list', (req, res) => {
@@ -16,7 +17,7 @@ router.get('/:product_id/list', (req, res) => {
         product: productId,
         page: 1,
         count: 5,
-        results: results.rows
+        results: results
       };
       // let reviews = results.rows;
       res.status(200).send(reviews);
