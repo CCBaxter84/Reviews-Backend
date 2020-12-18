@@ -7,7 +7,7 @@ const myFailRate = new Rate('failed requests');
 export let options = {
   stages: [
     { duration: '30s', target: 20},
-    { duration: '1m', target: 200},
+    { duration: '1m', target: 175},
     { duration: '30s', target: 20}
   ],
 
@@ -18,7 +18,7 @@ export let options = {
 };
 
 export default function() {
-  let productId = Math.floor(Math.random() * 10) + 1;
+  let productId = Math.floor(Math.random() * 100) + 1;
   let res1 = http.get(`http://3.129.86.154/reviews/${productId}/list`);
 
   let res2 = http.get(`http://3.129.86.154/reviews/${productId}/meta`);
